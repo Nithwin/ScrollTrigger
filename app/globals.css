@@ -1,1 +1,28 @@
 @import "tailwindcss";
+
+.spacer{
+    height: 100vh;
+}
+
+.animated-element{
+    width:300px;
+    height: 20vh;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    background-color: purple;
+    border-radius: 8px;
+    position: relative;
+    left: -400px;
+}
+.animated-element2{
+    width:300px;
+    height: 20vh;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    background-color: green;
+    border-radius: 8px;
+    position: relative;
+}
+

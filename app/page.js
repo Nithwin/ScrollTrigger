@@ -1,44 +1,38 @@
-"use client";
+'use client';
 import gsap from "gsap";
-import { useEffect, useRef } from "react"
 import { ScrollTrigger } from "gsap/ScrollTrigger";
-
+import { useEffect, useRef } from "react";
 gsap.registerPlugin(ScrollTrigger);
-
 const Home = () => {
-  const ref = useRef();
+  const box = useRef();
   useEffect(() => {
-    gsap.fromTo(ref.current, {
+    gsap.fromTo(box.current, {
       opacity:0,
-      y:100,
-    }, {
+      x:-100,
+      rotate:0,
+    },{
       opacity:1,
-      duration:1, 
-      y:0,
+      duration:1,
+      x:100,
+      rotate:360,
       scrollTrigger:{
-        trigger:ref.current,
-        start: 'top 90%',
-        end:'bottom 30%',
+        trigger:box.current,
+        start:'top 80%',
+        end:'top 30%',
         toggleActions:'play none none reverse',
-        markers:true,
-        
+        markers:false,
+        scrub:1,
       }
     })
-  },[])
+  },[]);
   return (
-    <section className="bg-gray-200 min-h-[150vh] p-10 py-[10rem]">
-      <div className="flex flex-col justify-center items-center">
-        <div  className=".box h-20 w-20 bg-purple-600/30 rounded-4xl shadow-purple-300 shadow-2xl backdrop-blur-3xl border-2 border-purple-700 my-32 ">
-
-        </div>
-        <div ref={ref}  className=".box h-40 w-40 bg-purple-600/30 rounded-4xl shadow-purple-300 shadow-2xl backdrop-blur-3xl border-2 border-purple-700 my-32 ">
-
-        </div>
-      
-        <div className=".box h-40 w-40 bg-purple-600/30 rounded-4xl shadow-purple-300 shadow-2xl backdrop-blur-3xl border-2 border-purple-700 my-32 ">
-
-        </div>
-
+    <section className="min-h-screen bg-gray-900 p-3">
+      <div className="flex flex-col justify-center items-center gap-[12rem] min-h-[150vh]">
+        <div className="h-32 w-32 bg-transparent rounded-2xl flex items-center justify-center text-2xl">1</div>
+        <div className="h-32 w-32 bg-transparent rounded-2xl flex items-center justify-center text-2xl">2</div>
+        <div ref={box} className="h-32 w-32 bg-emerald-500 rounded-2xl flex items-center justify-center text-2xl">3</div>
+        <div className="h-32 w-32 bg-transparent rounded-2xl flex items-center justify-center text-2xl">4</div>
+        <div className="h-32 w-32 bg-transparent rounded-2xl flex items-center justify-center text-2xl">5</div>
       </div>
     </section>
   )
